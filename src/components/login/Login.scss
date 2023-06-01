@@ -1,0 +1,13 @@
+.login {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__btn {
+  font-size: 28px;
+  background-color: var(--purple);
+  background-image: var(--primary-gradient);
+  padding: 12px 25px 10px;
+}
