@@ -1,12 +1,24 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Header.scss";
+
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
 
 const Header = () => {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        localStorage.clear();
+        dispatch({ type: "LOGOUT" });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   return (
     <header className="site-header">
