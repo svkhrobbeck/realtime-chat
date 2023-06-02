@@ -36,7 +36,9 @@ const Chat = () => {
 
   return (
     <section className="chat">
-      <div className="container chat__inner">{!!messages.length && messages.map(message => <Message key={message.id} {...message} />)}</div>
+      <div className="container">
+        <div className="chat__inner">{!!messages.length && messages.map(message => <Message key={message.id} {...message} />)}</div>
+      </div>
       <div className="chat__actions">
         <div className="container">
           <form className="chat__form" onSubmit={handleCreateMessage}>

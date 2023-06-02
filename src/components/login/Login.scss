@@ -10,4 +10,14 @@
   background-color: var(--purple);
   background-image: var(--primary-gradient);
   padding: 12px 25px 10px;
+
+  @media only screen and (max-width: 992px) {
+    font-size: 24px;
+    padding: 10px 18px 8px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 20px;
+    padding: 9px 15px 7px;
+  }
 }

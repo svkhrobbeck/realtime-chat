@@ -35,26 +35,49 @@
   background-color: var(--input-bg);
   border: none;
   border-radius: 10px;
-  padding: 14px 20px;
+  padding: 12px 20px;
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   margin-right: 15px;
 
   &::placeholder {
     color: var(--secondary-text-color);
   }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 21px;
+    padding: 10px 17px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 19px;
+    padding: 8px 15px;
+    width: 100%;
+    flex-shrink: 1;
+  }
 }
 
 .chat__button {
-  width: 55px;
-  height: 55px;
+  width: 52px;
+  height: 52px;
   padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 992px) {
+    width: 42px;
+    height: 42px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
 }
 
 .chat__button-img {
