@@ -60,27 +60,53 @@
 
 .message__inner {
   padding: 3px 20px 7px;
-  border-radius: 15px;
+  border-radius: 15px 15px 15px 0;
   background-color: var(--secondary-bg);
   margin-left: 10px;
   margin-right: 0;
   position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    border: 5px solid var(--secondary-bg);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: -1;
+
+    @media only screen and (max-width: 992px) {
+      border-width: 4px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      border-width: 3px;
+    }
+
+    @media only screen and (max-width: 576px) {
+      border-width: 2px;
+    }
+  }
 
   @media only screen and (max-width: 992px) {
     padding: 4px 10px;
-    border-radius: 13px;
+    border-radius: 13px 13px 13px 0;
   }
 
   @media only screen and (max-width: 768px) {
-    border-radius: 10px;
+    border-radius: 10px 10px 10px 0;
     margin-left: 7px;
     padding: 3px 10px 5px;
   }
 
   @media only screen and (max-width: 576px) {
-    border-radius: 8px;
+    border-radius: 8px 8px 8px 0;
     margin-left: 5px;
   }
 
@@ -94,13 +120,49 @@
     background-image: var(--primary-gradient);
     margin-right: 0;
     margin-left: 0;
+    border-radius: 15px 15px 0 15px;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      border: 5px solid #ac5bfd;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translateX(100%);
+      z-index: -1;
+
+      @media only screen and (max-width: 992px) {
+        border-width: 4px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        border-width: 3px;
+      }
+
+      @media only screen and (max-width: 576px) {
+        border-width: 2px;
+      }
+    }
 
     @media only screen and (max-width: 992px) {
       padding: 8px 10px 4px;
+      border-radius: 13px 13px 0 13px;
     }
 
     @media only screen and (max-width: 768px) {
       padding: 6px 10px 5px;
+      border-radius: 10px 10px 0 10px;
+    }
+
+    @media only screen and (max-width: 576px) {
+      border-radius: 8px 8px 0 8px;
     }
   }
 }
