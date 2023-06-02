@@ -15,13 +15,21 @@
 
 .chat__actions {
   background-color: var(--secondary-bg);
-  padding: 15px 0;
+  padding: 10px 0;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 100;
   width: 100%;
   border-top: 1px solid var(--purple);
+
+  @media only screen and (max-width: 768px) {
+    padding: 8px 0;
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding: 6px 0;
+  }
 }
 
 .chat__form {
@@ -35,47 +43,58 @@
   background-color: var(--input-bg);
   border: none;
   border-radius: 10px;
-  padding: 12px 20px;
+  padding: 10px 20px;
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-  margin-right: 15px;
+  margin-right: 10px;
 
   &::placeholder {
     color: var(--secondary-text-color);
   }
 
   @media only screen and (max-width: 992px) {
-    font-size: 21px;
-    padding: 10px 17px;
+    padding: 8px 15px;
+    font-size: 19px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 7px 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-right: 8px;
   }
 
   @media only screen and (max-width: 576px) {
-    font-size: 19px;
-    padding: 8px 15px;
+    padding: 6px 13px;
+    font-size: 17px;
     width: 100%;
-    flex-shrink: 1;
+    border-radius: 6px;
+    margin-right: 5px;
   }
 }
 
 .chat__button {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   @media only screen and (max-width: 992px) {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 33px;
+    height: 33px;
   }
 
   @media only screen and (max-width: 576px) {
-    width: 40px;
-    height: 40px;
     flex-shrink: 0;
   }
 }
