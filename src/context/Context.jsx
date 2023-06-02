@@ -3,6 +3,7 @@ import { createContext, useReducer } from "react";
 const initialValue = {
   isLogin: false,
   user: null,
+  load: false,
 };
 
 export const Context = createContext();
@@ -16,6 +17,9 @@ const reducer = (state = initialValue, action) => {
 
     case "LOGOUT":
       return { ...state, isLogin: false, user: null };
+
+    case "LOAD":
+      return { ...state };
 
     default:
       return state;
