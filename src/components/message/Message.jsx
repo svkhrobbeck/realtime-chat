@@ -15,12 +15,15 @@ const Message = ({ message, user, createdAt, id }) => {
 
   return (
     <div className={`message ${state.user.uid === user.uid && "message--own"}`}>
-      {state.user.uid === user.uid && (
-        <button className="message__delete button" onClick={handleDeleteMessage}>
-          <img className="message__delete-img" src="/trash.svg" alt="icon trash" />
-        </button>
-      )}
-      <img className="message__img" src={user.photoURL} alt="user avatar" />
+      <div className="message__btn-img-wrapper">
+        {state.user.uid === user.uid && (
+          <button className="message__delete button" onClick={handleDeleteMessage}>
+            <img className="message__delete-img" src="/trash.svg" alt="icon trash" />
+          </button>
+        )}
+        <img className="message__img" src={user.photoURL} alt="user avatar" />
+      </div>
+
       <div className={`message__inner ${state.user.uid === user.uid && "message__inner--own"}`}>
         {state.user.uid !== user.uid && <span className="message__username">{user.displayName}</span>}
         <p className="message__text">{message}</p>
