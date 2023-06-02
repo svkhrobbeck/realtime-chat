@@ -1,6 +1,11 @@
 .site-header {
   background-color: var(--secondary-bg);
   padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
 }
 
 .site-header__container {
@@ -22,8 +27,16 @@
   align-items: center;
 }
 
+.site-header__avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  margin-right: 15px;
+}
+
 .site-header__btn {
   color: var(--purple);
   font-size: 20px;
-  padding: 6px;
+  padding: 5px 0 2px;
 }
