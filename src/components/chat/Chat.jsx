@@ -14,7 +14,7 @@ const Chat = () => {
 
   const getMessages = async () => {
     const data = await getDocs(messagesRef);
-    const messages = data.docs.map(doc => ({ ...doc.data(), id: doc.id })).sort((a, b) => a.createdAt - b.createdAt);
+    const messages = data.docs.map(doc => ({ ...doc.data(), id: doc.id })).sort((a, b) => a.order - b.order);
     setMessages(messages);
   };
 
@@ -31,6 +31,7 @@ const Chat = () => {
       message,
       user: state.user,
       createdAt: Date.now(),
+      order: messages.length + 1,
     });
   };
 
