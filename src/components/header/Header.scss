@@ -1,6 +1,6 @@
 .site-header {
   background-color: var(--secondary-bg);
-  padding: 20px 0;
+  padding: 15px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,11 +8,15 @@
   width: 100%;
 
   @media only screen and (max-width: 992px) {
-    padding: 16px 0;
+    padding: 12px 0;
   }
 
   @media only screen and (max-width: 576px) {
     padding: 10px 0;
+  }
+
+  @media only screen and (max-width: 475px) {
+    padding: 8px 0;
   }
 }
 
@@ -35,14 +39,23 @@
   text-decoration: none;
   color: inherit;
   text-transform: uppercase;
-  font-size: 24px;
+  padding-top: 3px;
+  font-size: 23px;
 
   @media only screen and (max-width: 992px) {
     font-size: 20px;
   }
 
-  @media only screen and (max-width: 576px) {
+  @media only screen and (max-width: 768px) {
     font-size: 18px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 17px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 16px;
   }
 }
 
@@ -64,9 +77,14 @@
     margin-right: 10px;
   }
 
-  @media only screen and (max-width: 576px) {
+  @media only screen and (max-width: 768px) {
     width: 35px;
     height: 35px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -79,7 +97,11 @@
     font-size: 18px;
   }
 
-  @media only screen and (max-width: 576px) {
+  @media only screen and (max-width: 768px) {
     font-size: 16px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 15px;
   }
 }
