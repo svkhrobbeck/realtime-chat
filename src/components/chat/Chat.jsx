@@ -1,6 +1,6 @@
 import "./Chat.scss";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../../context/Context";
 import { db } from "../../firebase/firebase";
 import { addDoc, collection, getDocs, onSnapshot, query, where } from "firebase/firestore";
@@ -19,7 +19,12 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    onSnapshot(query(messagesRef), () => getMessages());
+    onSnapshot(query(messagesRef), () => {
+      getMessages();
+      setTimeout(() => {
+        window.scrollBy(0, document.body.scrollHeight + 50);
+      }, 200);
+    });
   }, []);
 
   const handleCreateMessage = async e => {
