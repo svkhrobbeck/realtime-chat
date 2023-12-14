@@ -18,19 +18,7 @@ const Home = () => {
     }
   });
 
-  return (
-    <>
-      {state.isLogin ? (
-        <>
-          <Chat />
-        </>
-      ) : (
-        <>
-          <Login />
-        </>
-      )}
-    </>
-  );
+  return <>{state.isLogin ? <Chat /> : <Login />}</>;
 };
 
 export default Home;

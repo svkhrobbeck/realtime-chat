@@ -48,7 +48,7 @@ const Chat = () => {
       <div className="chat__actions">
         <div className="container">
           <form className="chat__form" onSubmit={handleCreateMessage}>
-            <input className="chat__input" type="text" placeholder="Type your message" value={message} onChange={e => setMessage(e.target.value)} />
+            <textarea className="chat__field" type="text" placeholder="Type your message" value={message} onChange={e => setMessage(e.target.value)} />
             <button className="button chat__button">
               <img className="chat__button-img" src="/plane.svg" alt="icon plane" />
             </button>
