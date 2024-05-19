@@ -6,7 +6,7 @@ const initialValue = {
   load: false,
 };
 
-export const Context = createContext();
+export const Context = createContext(initialValue);
 
 const reducer = (state = initialValue, action) => {
   const { type, payload } = action;

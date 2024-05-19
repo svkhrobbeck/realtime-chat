@@ -1,8 +1,9 @@
-import { useContext, useEffect } from "react";
-import "./Login.scss";
-import { Context } from "../../context/Context";
-import { auth, provider } from "../../firebase/firebase";
+import { useContext } from "react";
 import { signInWithPopup } from "firebase/auth";
+
+import { auth, provider } from "../../firebase/firebase";
+import { Context } from "../../context/Context";
+import "./Login.scss";
 
 const Login = () => {
   const { dispatch } = useContext(Context);

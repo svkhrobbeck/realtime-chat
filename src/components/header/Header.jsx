@@ -1,9 +1,9 @@
-import "./Header.scss";
-
 import { useContext } from "react";
-import { Context } from "../../context/Context";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
+
+import { Context } from "../../context/Context";
+import { auth } from "../../firebase";
+import "./Header.scss";
 
 const Header = () => {
   const { state, dispatch } = useContext(Context);

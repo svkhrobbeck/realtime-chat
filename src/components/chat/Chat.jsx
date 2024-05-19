@@ -1,10 +1,12 @@
-import "./Chat.scss";
+import { useContext, useEffect, useState } from "react";
+import { addDoc, collection, getDocs, onSnapshot, query } from "firebase/firestore";
 
-import { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../../context/Context";
 import { db } from "../../firebase/firebase";
-import { addDoc, collection, getDocs, onSnapshot, query, where } from "firebase/firestore";
+
 import { Message } from "../";
+
+import "./Chat.scss";
 
 const Chat = () => {
   const { state } = useContext(Context);
@@ -14,7 +16,9 @@ const Chat = () => {
 
   const getMessages = async () => {
     const data = await getDocs(messagesRef);
-    const messages = data.docs.map(doc => ({ ...doc.data(), id: doc.id })).sort((a, b) => a.order - b.order);
+    const messages = data.docs
+      .map(doc => ({ ...doc.data(), id: doc.id }))
+      .sort((a, b) => a.order - b.order);
     setMessages(messages);
   };
 
@@ -43,12 +47,20 @@ const Chat = () => {
   return (
     <section className="chat">
       <div className="container">
-        <div className="chat__inner">{!!messages.length && messages.map(message => <Message key={message.id} {...message} />)}</div>
+        <div className="chat__inner">
+          {!!messages.length && messages.map(message => <Message key={message.id} {...message} />)}
+        </div>
       </div>
       <div className="chat__actions">
         <div className="container">
           <form className="chat__form" onSubmit={handleCreateMessage}>
-            <textarea className="chat__field" type="text" placeholder="Type your message" value={message} onChange={e => setMessage(e.target.value)} />
+            <textarea
+              className="chat__field"
+              type="text"
+              placeholder="Type your message"
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+            />
             <button className="button chat__button">
               <img className="chat__button-img" src="/plane.svg" alt="icon plane" />
             </button>

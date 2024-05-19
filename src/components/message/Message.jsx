@@ -1,10 +1,10 @@
-import "./Message.scss";
-
 import { useContext } from "react";
-import { Context } from "../../context/Context";
 import moment from "moment";
+
 import { deleteDoc, doc } from "firebase/firestore";
+import { Context } from "../../context/Context";
 import { db } from "../../firebase/firebase";
+import "./Message.scss";
 
 const Message = ({ message, user, createdAt, id }) => {
   const { state } = useContext(Context);
@@ -15,7 +15,9 @@ const Message = ({ message, user, createdAt, id }) => {
 
   return (
     <div className={`message ${state.user.uid === user.uid && "message--own"}`}>
-      {state.user.uid !== user.uid && <img className="message__img" src={user.photoURL} alt="user avatar" />}
+      {state.user.uid !== user.uid && (
+        <img className="message__img" src={user.photoURL} alt="user avatar" />
+      )}
 
       <div className={`message__inner ${state.user.uid === user.uid && "message__inner--own"}`}>
         {state.user.uid !== user.uid && (
@@ -25,7 +27,9 @@ const Message = ({ message, user, createdAt, id }) => {
         )}
         <p className="message__text">{message}</p>
         <footer className="message__footer">
-          <time className={`message__time ${state.user.uid === user.uid && "message__time--own"}`}>{moment(createdAt).format("DD MMMM HH:mm")}</time>
+          <time className={`message__time ${state.user.uid === user.uid && "message__time--own"}`}>
+            {moment(createdAt).format("DD MMMM HH:mm")}
+          </time>
           {state.user.uid === user.uid && (
             <>
               <button className="message__options-btn button">
