@@ -1,4 +1,5 @@
-import { Header, Home } from "./components";
+import { Header } from "./components";
+import { Home } from "./pages";
 
 const App = () => {
   return (

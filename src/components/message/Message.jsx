@@ -1,13 +1,13 @@
-import { useContext } from "react";
+import { deleteDoc, doc } from "firebase/firestore";
 import moment from "moment";
 
-import { deleteDoc, doc } from "firebase/firestore";
-import { Context } from "../../context/Context";
-import { db } from "../../firebase/firebase";
+import { useMyContext } from "../../context/Context";
+import { db } from "../../firebase";
+
 import "./Message.scss";
 
 const Message = ({ message, user, createdAt, id }) => {
-  const { state } = useContext(Context);
+  const { state } = useMyContext();
 
   const handleDeleteMessage = async () => {
     await deleteDoc(doc(db, "messages", id));

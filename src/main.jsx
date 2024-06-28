@@ -5,7 +5,9 @@ import ContextProvider from "./context/Context";
 
 import App from "./App";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <ContextProvider>
     <App />
   </ContextProvider>

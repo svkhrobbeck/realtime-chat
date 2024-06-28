@@ -1,12 +1,12 @@
-import { useContext } from "react";
 import { signInWithPopup } from "firebase/auth";
 
-import { auth, provider } from "../../firebase/firebase";
-import { Context } from "../../context/Context";
+import { auth, provider } from "../../firebase";
+import { useMyContext } from "../../context/Context";
+
 import "./Login.scss";
 
 const Login = () => {
-  const { dispatch } = useContext(Context);
+  const { dispatch } = useMyContext();
 
   const handleLogin = () => {
     signInWithPopup(auth, provider)

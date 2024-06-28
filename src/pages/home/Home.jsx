@@ -1,13 +1,15 @@
-import { useContext } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 
-import { Context } from "../../context/Context";
-import { auth } from "../../firebase/firebase";
-import { Login, Chat } from "../";
+import { auth } from "../../firebase";
+import { useMyContext } from "../../context/Context";
+
+import { Login } from "..";
+import { Chat } from "../../components";
+
 import "./Home.scss";
 
 const Home = () => {
-  const { state, dispatch } = useContext(Context);
+  const { state, dispatch } = useMyContext();
 
   onAuthStateChanged(auth, user => {
     if (user) {

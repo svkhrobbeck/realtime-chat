@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const initialValue = {
   isLogin: false,
@@ -31,5 +31,7 @@ const ContextProvider = ({ children }) => {
 
   return <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>;
 };
+
+export const useMyContext = () => useContext(Context);
 
 export default ContextProvider;

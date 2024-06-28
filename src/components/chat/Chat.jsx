@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { addDoc, collection, getDocs, onSnapshot, query } from "firebase/firestore";
 
-import { Context } from "../../context/Context";
-import { db } from "../../firebase/firebase";
+import { useMyContext } from "../../context/Context";
 
 import { Message } from "../";
+import { db } from "../../firebase";
 
 import "./Chat.scss";
 
 const Chat = () => {
-  const { state } = useContext(Context);
+  const { state } = useMyContext();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const messagesRef = collection(db, "messages");
@@ -19,6 +19,7 @@ const Chat = () => {
     const messages = data.docs
       .map(doc => ({ ...doc.data(), id: doc.id }))
       .sort((a, b) => a.order - b.order);
+    console.log(messages);
     setMessages(messages);
   };
 

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyCjIgYo9WX2SRE7-jGwbiYe6BcEpnFPNuI",
   authDomain: "realtime-chat-ca371.firebaseapp.com",
   projectId: "realtime-chat-ca371",
@@ -12,7 +12,7 @@ const firebaseConfig = {
   measurementId: "G-FLEEQZKY6G",
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+const app = initializeApp(config);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 export const provider = new GoogleAuthProvider();
-export const db = getFirestore(firebaseApp);
-export const auth = getAuth(firebaseApp);
